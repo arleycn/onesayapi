@@ -1,0 +1,16 @@
+{
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.4.0",
+            "excludeFiles": "{test/**}",
+            "memory": 1024,
+            "maxDuration": 10
+        }
+    },
+    "routes": [
+        {
+            "src": "/(\\w*)\\.(?:jpg|jpeg|png|gif|bmp|webp)",
+            "dest": "/api/index.php?id=$1"
+        }
+    ]
+}
