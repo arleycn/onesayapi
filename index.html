@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>随机一言api</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            html,
+            body {
+                margin: 0;
+                color: #424242;
+                font-weight: 300;
+                font-family: "-apple-system", "BlinkMacSystemFont", "Helvetica Neue", "PingFang SC", "Microsoft YaHei",
+                    "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "sans-serif";
+                font-size: 16px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            header {
+                padding: 40vh 0 8vh 0;
+                text-align: center;
+                font-weight: 100;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                height: 100vh;
+                overflow: hidden;
+                background: #e5a0d9;
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-weight: 400 !important;
+                font-weight: bold;
+                margin: 0;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+                font-weight: 300;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 300;
+            }
+
+            #scroll-down {
+                background-color: transparent;
+                margin-top: 2rem;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                border: 2px solid #424242;
+                cursor: pointer;
+                animation: bounce 2s infinite 2s;
+            }
+
+            #scroll-down::before {
+                display: block;
+                content: "";
+                transform: rotate(-45deg) translate(0.15rem, 0.15rem);
+                width: 0.4rem;
+                height: 0.4rem;
+                border: 2px solid #424242;
+                border-width: 0px 0 2px 2px;
+            }
+
+            a {
+                text-decoration: none;
+                color: #79c37c;
+            }
+
+            main {
+                padding: 1vw;
+            }
+
+            section {
+                padding: 1rem;
+            }
+
+            footer {
+                padding: 1vh;
+                text-align: center;
+                background-color: #aaaaaa;
+            }
+
+            footer a {
+                color: #ddd;
+            }
+
+            footer a:hover {
+                text-decoration: underline;
+            }
+
+            @keyframes bounce {
+                0%,
+                100%,
+                20%,
+                50%,
+                80% {
+                    transform: translateY(0);
+                }
+
+                40% {
+                    transform: translateY(-10px);
+                }
+
+                60% {
+                    transform: translateY(-5px);
+                }
+            }
+
+            xmp {
+                background-color: #f5f5f5;
+                padding: 2rem 1rem;
+                border-radius: 4px;
+                overflow: auto;
+            }
+            pre {
+                background-color: #f5f5f5;
+                padding: 2rem 1rem;
+                border-radius: 4px;
+                overflow: auto;
+            }
+            code {
+                background-color: #f5f5f5;
+                padding: 2rem 1rem;
+                border-radius: 4px;
+                overflow: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <section>
+                <h1>随机一言API</h1>
+                <h3>说明文档</h3>
+            </section>
+            <button id="scroll-down"></button>
+        </header>
+        <main>
+            <section>
+                <h2><strong>使用方法：</strong></h2>
+                <p>
+                    在需要调用一言的地方添加以下代码（附html中输出源代码的三种方式）
+                </p>
+                <xmp>
+                    <script type="text/javascript" src="https://域名.fun/onesay/?format=js&charset=utf-8"></script>
+                    <div id="onesay"><script>onesay()</script></div>
+                </xmp>
+                <pre>
+                    &lt;script type="text/javascript" src="https://域名.fun/onesay/?format=js&charset=utf-8"&gt;&lt;/script&gt;
+                    &lt;div id="onesay"&gt;&lt;script&gt;onesay()&lt;/script&gt;&lt;/div&gt;
+                </pre>
+                <code>
+                    &lt;script type="text/javascript" src="https://域名.fun/onesay/?format=js&charset=utf-8"&gt;&lt;/script&gt;
+                    &lt;div id="onesay"&gt;&lt;script&gt;onesay()&lt;/script&gt;&lt;/div&gt;
+                </code>
+            </section>
+        </main>
+        <script>
+            document.querySelector("main").innerHTML = document
+                .querySelector("main")
+                .innerHTML.replace(/https:\/\/example.net/g, location.origin);
+
+            document.getElementById("scroll-down").addEventListener("click", function () {
+                document.querySelector("main").scrollIntoView({
+                    behavior: "smooth",
+                });
+            });
+        </script>
+        <footer>
+            <p>
+                <a href="https://github.com/arleycn/onesayapi">Source Code</a>
+            </p>
+        </footer>
+    </body>
+</html>
